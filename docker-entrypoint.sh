@@ -11,6 +11,10 @@ fi
 echo "Running database migrations..."
 php artisan migrate --force
 
+# Seed the database
+echo "Seeding database..."
+php artisan db:seed --force
+
 # Clear and cache configuration, routes, and views
 echo "Caching configuration..."
 php artisan config:cache
