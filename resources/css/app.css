@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .dark {
+        color-scheme: dark;
+    }
+    /* Fix for dropdown options in dark mode */
+    .dark select option {
+        background-color: #111111;
+        color: white;
+    }
+}
+
+@layer utilities {
+    .marquee-track {
+        animation: marquee 18s linear infinite;
+    }
+    @keyframes marquee {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+    }
+}
+
+/* Custom Scrollbar for Dark Mode */
+.dark ::-webkit-scrollbar {
+    width: 10px;
+}
+.dark ::-webkit-scrollbar-track {
+    background: #050505;
+}
+.dark ::-webkit-scrollbar-thumb {
+    background: #1f2937;
+    border: 2px solid #050505;
+    border-radius: 5px;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #374151;
+}
+
+/* Improve Select background in Dark Mode to be solid, preventing transparent leakage in some browsers */
+.dark select {
+    background-color: #111111 !important;
+}
